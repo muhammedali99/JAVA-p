@@ -1,0 +1,16 @@
+com/gestnotes/dao/UtilisateurDAO.class
+com/gestnotes/controller/ConnexionController.class
+com/gestnotes/Session.class
+com/gestnotes/controller/MainController.class
+com/gestnotes/controller/NoteController.class
+com/gestnotes/model/Module.class
+com/gestnotes/dao/DatabaseConnection.class
+com/gestnotes/controller/EtudiantController.class
+com/gestnotes/Main.class
+com/gestnotes/model/Note.class
+com/gestnotes/dao/EtudiantDAO.class
+com/gestnotes/model/Etudiant.class
+com/gestnotes/controller/ModuleController.class
+com/gestnotes/model/Utilisateur.class
+com/gestnotes/dao/ModuleDAO.class
+com/gestnotes/dao/NoteDAO.class

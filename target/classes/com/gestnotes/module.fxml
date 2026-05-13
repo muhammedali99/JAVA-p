@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestnotes.controller.ModuleController"
+      spacing="10" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <Label text="Gestion des Modules"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Form + Buttons -->
+    <HBox spacing="15">
+        <VBox style="-fx-background-color: white; -fx-padding: 15; -fx-border-radius: 5; -fx-background-radius: 5;"
+              spacing="8" HBox.hgrow="ALWAYS">
+            <Label text="Formulaire Module" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+            <GridPane hgap="10" vgap="8">
+                <Label text="Code:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="codeField" promptText="Ex: INFO101" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200"/>
+
+                <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="nomField" promptText="Nom du module" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Coefficient:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="coefficientField" promptText="Ex: 2.5" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Enseignant:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="enseignantField" promptText="Nom de l'enseignant" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            </GridPane>
+        </VBox>
+
+        <VBox spacing="10" alignment="TOP_CENTER" style="-fx-padding: 15 0 0 0;">
+            <Button fx:id="ajouterBtn" text="Ajouter" onAction="#handleAjouter"
+                    styleClass="btn-primary" prefWidth="120" prefHeight="35"/>
+            <Button fx:id="modifierBtn" text="Modifier" onAction="#handleModifier"
+                    prefWidth="120" prefHeight="35"
+                    style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-cursor: hand;"/>
+            <Button fx:id="supprimerBtn" text="Supprimer" onAction="#handleSupprimer"
+                    styleClass="btn-danger" prefWidth="120" prefHeight="35"/>
+            <Button fx:id="reinitialiserBtn" text="Réinitialiser" onAction="#handleReinitialiser"
+                    prefWidth="120" prefHeight="35"
+                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-cursor: hand;"/>
+        </VBox>
+    </HBox>
+
+    <TableView fx:id="moduleTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+            <TableColumn fx:id="colCode" text="Code" prefWidth="90"/>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="200"/>
+            <TableColumn fx:id="colCoefficient" text="Coefficient" prefWidth="100"/>
+            <TableColumn fx:id="colEnseignant" text="Enseignant" prefWidth="200"/>
+        </columns>
+        <placeholder><Label text="Aucun module trouvé"/></placeholder>
+    </TableView>
+
+</VBox>

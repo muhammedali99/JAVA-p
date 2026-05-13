@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestnotes.controller.NoteController"
+      spacing="10" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <Label text="Gestion des Notes"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Student + Module selection -->
+    <HBox spacing="20" alignment="CENTER_LEFT"
+          style="-fx-background-color: white; -fx-padding: 12; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label text="Étudiant:"/>
+        <ComboBox fx:id="etudiantCombo" prefWidth="280" onAction="#handleEtudiantChange"
+                  promptText="Sélectionner un étudiant"/>
+        <Label text="Module:"/>
+        <ComboBox fx:id="moduleCombo" prefWidth="220" onAction="#handleModuleChange"
+                  promptText="Sélectionner un module"/>
+    </HBox>
+
+    <!-- Note input + Calculate -->
+    <HBox spacing="15" alignment="CENTER_LEFT"
+          style="-fx-background-color: white; -fx-padding: 12; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label text="Note CC (0-20):"/>
+        <TextField fx:id="noteCCField" promptText="0.00" prefWidth="80"/>
+        <Label text="Note Examen (0-20):"/>
+        <TextField fx:id="noteExamenField" promptText="0.00" prefWidth="80"/>
+        <Button fx:id="calculerBtn" text="Calculer" onAction="#handleCalculer"
+                styleClass="btn-primary" prefHeight="30"/>
+        <Label text="Moyenne:"/>
+        <Label fx:id="moyenneLabel" text="—"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2c3e50;"/>
+        <Label text="Mention:"/>
+        <Label fx:id="mentionLabel" text="—"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #27ae60;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="sauvegarderBtn" text="Sauvegarder" onAction="#handleSauvegarder"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-cursor: hand;" prefHeight="30"/>
+    </HBox>
+
+    <!-- Moyenne générale -->
+    <HBox spacing="10" alignment="CENTER_LEFT"
+          style="-fx-background-color: #dfe6e9; -fx-padding: 8 12; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label text="Moyenne générale de l'étudiant:"
+               style="-fx-font-weight: bold;"/>
+        <Label fx:id="moyenneGeneraleLabel" text="—"
+               style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2980b9;"/>
+    </HBox>
+
+    <!-- Notes table -->
+    <TableView fx:id="notesTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;">
+        <columns>
+            <TableColumn fx:id="colModule" text="Module" prefWidth="200"/>
+            <TableColumn fx:id="colNoteCC" text="Note CC" prefWidth="100"/>
+            <TableColumn fx:id="colNoteExamen" text="Note Examen" prefWidth="120"/>
+            <TableColumn fx:id="colMoyenne" text="Moyenne" prefWidth="100"/>
+            <TableColumn fx:id="colMention" text="Mention" prefWidth="120"/>
+        </columns>
+        <placeholder><Label text="Sélectionnez un étudiant pour voir ses notes"/></placeholder>
+    </TableView>
+
+</VBox>

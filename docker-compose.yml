@@ -1,0 +1,19 @@
+services:
+  app:
+    build: .
+    container_name: gestnotes-dev
+    environment:
+      - DISPLAY=${DISPLAY}
+      - JAVA_TOOL_OPTIONS=-Djava.awt.headless=false
+    volumes:
+      - .:/app                          # your source code lives here on host
+      - /tmp/.X11-unix:/tmp/.X11-unix   # X11 socket for GUI display
+      - maven-cache:/root/.m2           # cache Maven deps between runs
+    network_mode: host
+    user: "${UID}:${GID}"
+    stdin_open: true
+    tty: true
+    command: bash
+
+volumes:
+  maven-cache:

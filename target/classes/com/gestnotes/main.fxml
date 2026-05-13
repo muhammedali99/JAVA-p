@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gestnotes.controller.MainController"
+            prefWidth="1000" prefHeight="650">
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- TOP: Header -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER_LEFT" spacing="20">
+            <Label text="GestNotes" styleClass="header-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userInfoLabel"
+                   style="-fx-text-fill: white; -fx-font-size: 12px;"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT: Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" spacing="0" prefWidth="200" alignment="TOP_CENTER">
+            <padding><Insets top="20"/></padding>
+            <Label text="Navigation"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px; -fx-padding: 0 0 10 15;"/>
+            <Button fx:id="etudiantsBtn" text="  Étudiants" onAction="#showEtudiants"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px;"/>
+            <Button fx:id="modulesBtn" text="  Modules" onAction="#showModules"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px;"/>
+            <Button fx:id="notesBtn" text="  Notes" onAction="#showNotes"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px;"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="  Déconnexion" onAction="#handleDeconnexion"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px; -fx-text-fill: #e74c3c;"/>
+        </VBox>
+    </left>
+
+    <!-- CENTER: Dynamic content area -->
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-background-color: #ecf0f1;"/>
+    </center>
+
+</BorderPane>
