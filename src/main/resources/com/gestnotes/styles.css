@@ -7,3 +7,4 @@
 TableView { -fx-selection-bar: #3498db; }
 .btn-primary { -fx-background-color: #3498db; -fx-text-fill: white; -fx-cursor: hand; }
 .btn-danger  { -fx-background-color: #e74c3c; -fx-text-fill: white; -fx-cursor: hand; }
+.stat-card   { -fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5; }

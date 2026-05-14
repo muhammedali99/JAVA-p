@@ -38,10 +38,16 @@
             <Button fx:id="notesBtn" text="  Notes" onAction="#showNotes"
                     styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
                     style="-fx-padding: 12 15; -fx-font-size: 13px;"/>
+            <Button fx:id="statsBtn" text="  Statistiques" onAction="#showStatistiques"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px;"/>
             <Region VBox.vgrow="ALWAYS"/>
             <Button text="  Déconnexion" onAction="#handleDeconnexion"
                     styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
                     style="-fx-padding: 12 15; -fx-font-size: 13px; -fx-text-fill: #e74c3c;"/>
+            <Button text="  Quitter" onAction="#handleQuitter"
+                    styleClass="sidebar-btn" maxWidth="Infinity" alignment="CENTER_LEFT"
+                    style="-fx-padding: 12 15; -fx-font-size: 13px; -fx-text-fill: #95a5a6;"/>
         </VBox>
     </left>
 

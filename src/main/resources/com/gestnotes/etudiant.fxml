@@ -47,7 +47,7 @@
                 <TextField fx:id="telephoneField" promptText="Chiffres seulement" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
                 <Label text="Date naissance:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-                <TextField fx:id="dateNaissanceField" promptText="YYYY-MM-DD" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <DatePicker fx:id="dateNaissancePicker" GridPane.columnIndex="1" GridPane.rowIndex="5" prefWidth="180"/>
 
                 <Label text="Niveau:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
                 <ComboBox fx:id="niveauCombo" GridPane.columnIndex="1" GridPane.rowIndex="6" prefWidth="180"/>

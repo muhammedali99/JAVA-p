@@ -1,6 +1,7 @@
 package com.gestnotes.controller;
 
 import com.gestnotes.Session;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ public class MainController {
     @FXML private Button etudiantsBtn;
     @FXML private Button modulesBtn;
     @FXML private Button notesBtn;
+    @FXML private Button statsBtn;
 
     @FXML
     public void initialize() {
@@ -41,6 +43,16 @@ public class MainController {
     @FXML
     private void showNotes() {
         loadView("/com/gestnotes/note.fxml");
+    }
+
+    @FXML
+    private void showStatistiques() {
+        loadView("/com/gestnotes/statistiques.fxml");
+    }
+
+    @FXML
+    private void handleQuitter() {
+        Platform.exit();
     }
 
     @FXML

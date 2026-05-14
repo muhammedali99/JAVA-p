@@ -5,12 +5,14 @@
 /app/src/main/java/com/gestnotes/controller/MainController.java
 /app/src/main/java/com/gestnotes/controller/ModuleController.java
 /app/src/main/java/com/gestnotes/controller/NoteController.java
+/app/src/main/java/com/gestnotes/controller/StatistiquesController.java
 /app/src/main/java/com/gestnotes/dao/DatabaseConnection.java
 /app/src/main/java/com/gestnotes/dao/EtudiantDAO.java
 /app/src/main/java/com/gestnotes/dao/ModuleDAO.java
 /app/src/main/java/com/gestnotes/dao/NoteDAO.java
 /app/src/main/java/com/gestnotes/dao/UtilisateurDAO.java
 /app/src/main/java/com/gestnotes/model/Etudiant.java
+/app/src/main/java/com/gestnotes/model/EtudiantResultat.java
 /app/src/main/java/com/gestnotes/model/Module.java
 /app/src/main/java/com/gestnotes/model/Note.java
 /app/src/main/java/com/gestnotes/model/Utilisateur.java

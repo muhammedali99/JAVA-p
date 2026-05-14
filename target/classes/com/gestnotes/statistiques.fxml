@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.gestnotes.controller.StatistiquesController"
+      spacing="15" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Title bar -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Statistiques"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Actualiser" onAction="#handleRefresh"
+                styleClass="btn-primary" prefHeight="30"/>
+    </HBox>
+
+    <!-- Stat cards -->
+    <HBox spacing="12">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="5">
+            <Label text="Total Étudiants"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Label fx:id="totalEtudiantsLabel" text="—"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="5">
+            <Label text="Moyenne de la classe"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Label fx:id="moyenneClasseLabel" text="—"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #3498db;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="5">
+            <Label text="Meilleure moyenne"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Label fx:id="meilleureMoyenneLabel" text="—"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="5">
+            <Label text="Admis"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Label fx:id="admisLabel" text="—"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #27ae60;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" alignment="CENTER" spacing="5">
+            <Label text="Ajournés"
+                   style="-fx-text-fill: #7f8c8d; -fx-font-size: 11px;"/>
+            <Label fx:id="ajournesLabel" text="—"
+                   style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #e74c3c;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Results table -->
+    <Label text="Résultats par étudiant"
+           style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <TableView fx:id="resultatsTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;">
+        <columns>
+            <TableColumn fx:id="colNom" text="Nom" prefWidth="130"/>
+            <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="130"/>
+            <TableColumn fx:id="colCin" text="CIN" prefWidth="100"/>
+            <TableColumn fx:id="colFiliere" text="Filière" prefWidth="80"/>
+            <TableColumn fx:id="colMoyenne" text="Moyenne Gén." prefWidth="120"/>
+            <TableColumn fx:id="colResultat" text="Résultat" prefWidth="100"/>
+        </columns>
+        <placeholder><Label text="Aucun étudiant enregistré"/></placeholder>
+    </TableView>
+
+</VBox>

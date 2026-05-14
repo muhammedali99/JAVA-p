@@ -61,6 +61,16 @@ public class NoteDAO {
         }
     }
 
+    public boolean hasNotes(int etudiantId) {
+        try (PreparedStatement ps = conn.prepareStatement("SELECT COUNT(*) FROM note WHERE etudiant_id=?")) {
+            ps.setInt(1, etudiantId);
+            ResultSet rs = ps.executeQuery();
+            return rs.next() && rs.getInt(1) > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public double getMoyenneGenerale(int etudiantId) {
         String sql = """
             SELECT SUM(n.moyenne_module * m.coefficient) / SUM(m.coefficient)

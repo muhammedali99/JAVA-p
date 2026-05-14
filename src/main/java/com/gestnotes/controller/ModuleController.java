@@ -39,10 +39,17 @@ public class ModuleController {
     @FXML
     private void handleAjouter() {
         if (!validateForm()) return;
-        Module m = buildFromForm();
-        moduleDAO.add(m);
-        refreshTable();
-        clearForm();
+        try {
+            moduleDAO.add(buildFromForm());
+            refreshTable();
+            clearForm();
+        } catch (RuntimeException e) {
+            if (e.getMessage() != null && e.getMessage().contains("UNIQUE")) {
+                showError("Ce code de module existe déjà. Choisissez un code différent.");
+            } else {
+                showError("Erreur lors de l'ajout : " + e.getMessage());
+            }
+        }
     }
 
     @FXML
@@ -52,11 +59,19 @@ public class ModuleController {
             return;
         }
         if (!validateForm()) return;
-        Module m = buildFromForm();
-        m.setId(selectedModule.getId());
-        moduleDAO.update(m);
-        refreshTable();
-        clearForm();
+        try {
+            Module m = buildFromForm();
+            m.setId(selectedModule.getId());
+            moduleDAO.update(m);
+            refreshTable();
+            clearForm();
+        } catch (RuntimeException e) {
+            if (e.getMessage() != null && e.getMessage().contains("UNIQUE")) {
+                showError("Ce code de module est déjà utilisé par un autre module.");
+            } else {
+                showError("Erreur lors de la modification : " + e.getMessage());
+            }
+        }
     }
 
     @FXML

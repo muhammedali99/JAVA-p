@@ -1,5 +1,6 @@
 package com.gestnotes.controller;
 
+import com.gestnotes.Session;
 import com.gestnotes.dao.EtudiantDAO;
 import com.gestnotes.model.Etudiant;
 import javafx.collections.FXCollections;
@@ -7,12 +8,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 public class EtudiantController {
 
-    @FXML private TextField nomField, prenomField, cinField, emailField, telephoneField, dateNaissanceField;
+    @FXML private TextField nomField, prenomField, cinField, emailField, telephoneField;
+    @FXML private DatePicker dateNaissancePicker;
     @FXML private ComboBox<String> niveauCombo, filiereCombo, groupeCombo;
     @FXML private Button ajouterBtn, modifierBtn, supprimerBtn, reinitialiserBtn;
     @FXML private TextField rechercheField;
@@ -43,6 +46,12 @@ public class EtudiantController {
         etudiantTable.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) populateForm(newVal);
         });
+
+        if (Session.currentUser != null && "ENSEIGNANT".equals(Session.currentUser.getRole())) {
+            ajouterBtn.setDisable(true);
+            modifierBtn.setDisable(true);
+            supprimerBtn.setDisable(true);
+        }
 
         refreshTable(etudiantDAO.findAll());
     }
@@ -141,7 +150,7 @@ public class EtudiantController {
         e.setCin(cinField.getText().trim());
         e.setEmail(emailField.getText().trim());
         e.setTelephone(telephoneField.getText().trim());
-        e.setDateNaissance(dateNaissanceField.getText().trim());
+        e.setDateNaissance(dateNaissancePicker.getValue() != null ? dateNaissancePicker.getValue().toString() : "");
         e.setNiveau(niveauCombo.getValue());
         e.setFiliere(filiereCombo.getValue());
         e.setGroupe(groupeCombo.getValue());
@@ -155,7 +164,13 @@ public class EtudiantController {
         cinField.setText(e.getCin());
         emailField.setText(e.getEmail());
         telephoneField.setText(e.getTelephone());
-        dateNaissanceField.setText(e.getDateNaissance() != null ? e.getDateNaissance() : "");
+        try {
+            dateNaissancePicker.setValue(
+                e.getDateNaissance() != null && !e.getDateNaissance().isEmpty()
+                    ? LocalDate.parse(e.getDateNaissance()) : null);
+        } catch (Exception ex) {
+            dateNaissancePicker.setValue(null);
+        }
         niveauCombo.setValue(e.getNiveau());
         filiereCombo.setValue(e.getFiliere());
         groupeCombo.setValue(e.getGroupe());
@@ -164,7 +179,7 @@ public class EtudiantController {
     private void clearForm() {
         selectedEtudiant = null;
         nomField.clear(); prenomField.clear(); cinField.clear();
-        emailField.clear(); telephoneField.clear(); dateNaissanceField.clear();
+        emailField.clear(); telephoneField.clear(); dateNaissancePicker.setValue(null);
         niveauCombo.setValue(null); filiereCombo.setValue(null); groupeCombo.setValue(null);
         etudiantTable.getSelectionModel().clearSelection();
     }
