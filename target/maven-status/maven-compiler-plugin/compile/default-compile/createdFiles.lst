@@ -5,6 +5,7 @@ com/gestnotes/Main.class
 com/gestnotes/model/Note.class
 com/gestnotes/dao/EtudiantDAO.class
 com/gestnotes/model/Etudiant.class
+com/gestnotes/dao/DataSeeder.class
 com/gestnotes/controller/ModuleController.class
 com/gestnotes/dao/NoteDAO.class
 com/gestnotes/dao/UtilisateurDAO.class

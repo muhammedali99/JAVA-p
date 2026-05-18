@@ -79,5 +79,6 @@ public class DatabaseConnection {
                 st.executeUpdate("INSERT INTO utilisateur(username,password,role) VALUES('enseignant','ens123','ENSEIGNANT')");
             }
         }
+        DataSeeder.seed(conn);
     }
 }

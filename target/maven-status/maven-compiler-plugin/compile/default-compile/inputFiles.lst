@@ -6,6 +6,7 @@
 /app/src/main/java/com/gestnotes/controller/ModuleController.java
 /app/src/main/java/com/gestnotes/controller/NoteController.java
 /app/src/main/java/com/gestnotes/controller/StatistiquesController.java
+/app/src/main/java/com/gestnotes/dao/DataSeeder.java
 /app/src/main/java/com/gestnotes/dao/DatabaseConnection.java
 /app/src/main/java/com/gestnotes/dao/EtudiantDAO.java
 /app/src/main/java/com/gestnotes/dao/ModuleDAO.java

@@ -4,21 +4,36 @@ Java 21 + JavaFX 21 + SQLite desktop app for managing students, modules and grad
 
 ## Requirements
 
-- Docker + Docker Compose
-- Linux with X11 (for GUI display)
+- Java 21 JDK — download from [adoptium.net](https://adoptium.net) or [oracle.com](https://www.oracle.com/java/technologies/downloads/)
+- Apache Maven 3.8+ — download from [maven.apache.org](https://maven.apache.org/download.cgi)
 
 ## Run
 
-```bash
-# 1. Allow Docker to use your display (once per session)
-xhost +local:docker
+### Windows
 
-# 2. Build the image (first time only)
-docker compose build
-
-# 3. Launch the app
-docker compose run --rm app mvn javafx:run
+```bat
+run.bat
 ```
+
+Or manually:
+
+```bat
+mvn javafx:run
+```
+
+### Linux / macOS
+
+```bash
+./run.sh
+```
+
+Or manually:
+
+```bash
+mvn javafx:run
+```
+
+> The SQLite database (`gestnotes.db`) is created automatically on first run in the project directory.
 
 ## Login credentials
 
@@ -34,6 +49,10 @@ docker compose run --rm app mvn javafx:run
 - **Notes** — Enter CC + exam grades, auto-calculate averages and mentions
 - **Statistiques** — Class overview: total students, class average, best score, admitted/failed list
 
-## Data
+## Docker (Linux with X11 only)
 
-The SQLite database (`gestnotes.db`) is created automatically on first run in the project directory.
+```bash
+xhost +local:docker
+docker compose build
+docker compose run --rm app mvn javafx:run
+```
