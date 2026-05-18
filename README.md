@@ -1,5 +1,8 @@
 # GestNotes — JavaFX Student Management App
 
+**Étudiant :** Mouhamed Ali Bakaka — **Classe :** INGTA-A
+**Dépôt GitHub :** https://github.com/muhammedali99/JAVA-p
+
 Java 21 + JavaFX 21 + SQLite desktop app for managing students, modules and grades.
 
 ## Requirements

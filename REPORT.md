@@ -2,6 +2,10 @@
 ### Application de Gestion des Étudiants, Modules et Notes
 **Technologie :** Java 21 · JavaFX 21 · SQLite · Maven · Docker
 
+**Étudiant :** Mouhamed Ali Bakaka
+**Classe :** INGTA-A
+**Dépôt GitHub :** https://github.com/muhammedali99/JAVA-p
+
 ---
 
 ## 1. Introduction
